@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  mysql:
+    container_name: Mysql-WP
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: wordpress-db
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: changeme
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - wordpress-network
+
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: changeme
+      WORDPRESS_DB_NAME: wordpress-db
+    volumes:
+      - wordpress-data:/var/www/html
+    ports:
+      - 8080:80
+    networks:
+      - wordpress-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql-data:
+    driver: local
+  wordpress-data:
+    driver: local
+
+networks:
+  wordpress-network:
+    driver: bridge
+##WPuser = ashab
+# wp pass = changeme
