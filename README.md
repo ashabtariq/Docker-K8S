@@ -86,7 +86,7 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
 
 
 <details>
-  <summary> 📰 5. Product API + MongoDB </summary>
+  <summary> 🌱 5. Product API + MongoDB </summary>
 
   Full multi-container setup for Sample Flask Product API backed by MongoDB.
 
