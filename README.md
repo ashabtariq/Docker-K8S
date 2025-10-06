@@ -12,7 +12,7 @@ A simple Python REST API built with **Flask**, containerized with Docker.
 - Includes unit tests (`pytest`) and dependency management  
 
 **Run:**
-```bash
+~~~bash
 docker compose up --build
 ~~~
 
