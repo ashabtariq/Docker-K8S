@@ -25,7 +25,7 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 ---
 <details>
-  <summary><b>🌐 Nginx + Static Site </b>
+  <summary><b>🌐 Nginx + Static Site </b> </summary>
     A minimal static website served via Nginx.
 
     Shows how to serve HTML/CSS with Nginx
@@ -38,7 +38,7 @@ Each folder demonstrates a different concept — from containerizing Python apps
   docker run -d -p 8080:80 static-site
   ~~~
 
-  </summary>
+  
 
 </details>
 
