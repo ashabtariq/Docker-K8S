@@ -1,6 +1,7 @@
 # 🐳 Docker & Kubernetes Learning Lab
 
 This repository tracks my hands-on journey to mastering **Docker** and **Kubernetes** through real-world mini-projects.  
+
 Each folder demonstrates a different concept — from containerizing Python apps to orchestrating multi-container environments.
 
 ## 🧩 **Projects Overview**
@@ -50,7 +51,7 @@ Run:
 docker compose up --build
 ~~~
 
-Then open 👉 [Visitor Counter] (http://localhost:8080)
+Then open 👉 [Visitor Counter](http://localhost:8080)
 
 ---
 
