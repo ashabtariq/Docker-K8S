@@ -27,9 +27,8 @@ Each folder demonstrates a different concept — from containerizing Python apps
 <details>
   <summary><b>🌐 Nginx + Static Site </b> </summary>
     A minimal static website served via Nginx.
-
-    Shows how to serve HTML/CSS with Nginx
-    Perfect for understanding web server containers
+    - Shows how to serve HTML/CSS with Nginx
+    - Perfect for understanding web server containers
 
   Run:
 
