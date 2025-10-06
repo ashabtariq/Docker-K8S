@@ -8,7 +8,7 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 <details>
 
-  <summary>🧱 <b>lask-API</b></summary>
+  <summary>🧱 <b>Flask-API</b></summary>
 
   A simple Python REST API built with **Flask**, containerized with Docker.  
 
@@ -24,20 +24,26 @@ Each folder demonstrates a different concept — from containerizing Python apps
 </details>
 
 ---
+<detail>
+  <summary><b>🌐 Nginx + Static Site </b>
+    A minimal static website served via Nginx.
 
-🌐 2. Nginx + Static Site
+    Shows how to serve HTML/CSS with Nginx
+    Perfect for understanding web server containers
 
-A minimal static website served via Nginx.
+  Run:
 
-Shows how to serve HTML/CSS with Nginx
-Perfect for understanding web server containers
+  ~~~bash
+  docker build -t static-site .
+  docker run -d -p 8080:80 static-site
+  ~~~
+  
+  </summary>
 
-Run:
+</detail>
 
-~~~bash
-docker build -t static-site .
-docker run -d -p 8080:80 static-site
-~~~
+
+
 
 ---
 
