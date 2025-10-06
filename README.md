@@ -8,27 +8,20 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 <details>
 
-  <summary>🧱 **1. Flask-API**</summary>
+  <summary>🧱 <b>lask-API</b></summary>
 
   A simple Python REST API built with **Flask**, containerized with Docker.  
 
 - Demonstrates building lightweight backend images  
 - Includes unit tests (`pytest`) and dependency management
 
+  <b>Run</b>
+
+  ~~~bash
+  docker compose up --build
+  ~~~
+
 </details>
-
-### 🧱 **1. Flask-API**
-
-A simple Python REST API built with **Flask**, containerized with Docker.  
-
-- Demonstrates building lightweight backend images  
-- Includes unit tests (`pytest`) and dependency management  
-
-**Run:**
-
-~~~bash
-docker compose up --build
-~~~
 
 ---
 
