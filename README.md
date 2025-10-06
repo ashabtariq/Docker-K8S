@@ -3,35 +3,6 @@
 This repository tracks my hands-on journey to mastering **Docker** and **Kubernetes** through real-world mini-projects.  
 Each folder demonstrates a different concept — from containerizing Python apps to orchestrating multi-container environments.
 
----
-
-## 📁 Project Structure
-Docker&K8S/
-├── Flask-Api/
-│ ├── api/
-│ │ ├── main.py
-│ │ ├── test_main.py
-│ │ ├── requirements.txt
-│ │ └── Dockerfile
-│ └── docker-compose.yaml
-│
-├── Nginx+StaticSite/
-│ ├── index.html
-│ └── Dockerfile
-│
-├── VisitorCounter/
-│ ├── main.py
-│ ├── requirements.txt
-│ ├── Dockerfile
-│ ├── docker-compose.yaml
-│ ├── static/
-│ └── templates/
-│
-└── Wordpress/
-└── docker-compose.yaml
-
-
----
 
 ## 🧩 **Projects Overview**
 
