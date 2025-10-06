@@ -6,6 +6,17 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 ## 🧩 **Projects Overview**
 
+<details>
+
+  <summary>🧱 **1. Flask-API**</summary>
+
+  A simple Python REST API built with **Flask**, containerized with Docker.  
+
+- Demonstrates building lightweight backend images  
+- Includes unit tests (`pytest`) and dependency management
+
+</details>
+
 ### 🧱 **1. Flask-API**
 
 A simple Python REST API built with **Flask**, containerized with Docker.  
