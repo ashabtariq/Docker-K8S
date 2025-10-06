@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  product-api:
+    container_name: product-api
+    image: productapi
+    restart: always
+    environment:
+      MONGO_URI: mongodb://mongo:27017/
+    ports:
+      - 5000:5000
+    networks:
+      - api-net
+
+  mongodb:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - api-net
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  api-net:
+    driver: bridge
