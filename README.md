@@ -87,11 +87,12 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
 ---
 
 🧠 Tech Stack
-  🐍 Python (Flask)
-  🐳 Docker & Docker Compose
-  ☸️ Kubernetes (up next)
-  🌐 Nginx
-  🗄️ MySQL / WordPress
+
+- 🐍 Python (Flask)
+- 🐳 Docker & Docker Compose
+- ☸️ Kubernetes (up next)
+- 🌐 Nginx
+- 🗄️ MySQL / WordPress
 
  ---
   ✨ Author
