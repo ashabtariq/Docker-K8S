@@ -14,7 +14,7 @@ A simple Python REST API built with **Flask**, containerized with Docker.
 **Run:**
 ```bash
 docker compose up --build
-
+~~~
 
 
 🌐 2. Nginx + Static Site
