@@ -45,8 +45,7 @@ Each folder demonstrates a different concept — from containerizing Python apps
 </details>
 
 <details>
-  <summary>
-    👥 3. Visitor Counter (Flask App)
+  <summary> 👥 3. Visitor Counter (Flask App) </summary>
 
 A small Flask application that counts, stored in Redis and displays the number of visitors.
 
@@ -61,15 +60,14 @@ docker compose up --build
 ~~~
 
 Then open 👉 [Visitor Counter](http://localhost:8080)
-  </summary>
+  
 </details>
 
 
 ---
 
 <details>
-  <summary>
-  📰 4. WordPress + MySQL Stack
+  <summary> 📰 4. WordPress + MySQL Stack </summary>
 
   Full multi-container setup for WordPress backed by MySQL.
 
@@ -84,7 +82,7 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
   ~~~
 
   Then visit 👉 [Wordpress](http://localhost:8080)
-</summary>
+
 </details>
 
 ---
