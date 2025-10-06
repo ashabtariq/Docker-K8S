@@ -84,11 +84,46 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
 
 </details>
 
+
+<details>
+  <summary> 📰 5. Product API + MongoDB </summary>
+
+  Full multi-container setup for Sample Flask Product API backed by MongoDB.
+
+- Uses Docker Compose
+- Includes persistent named volumes
+- Demonstrates inter-container networking
+
+  Run:
+
+  ~~~bash
+  docker compose up -d
+  ~~~
+
+🧪 4️⃣ Test API with curl
+  
+  ~~~bash
+  
+
+    Add data:
+
+    curl -X POST -H "Content-Type: application/json" \
+    -d '{"name": "Laptop", "price": 1200}' \
+    http://127.0.0.1:5000/items
+
+
+    Get all data:
+
+    curl http://127.0.0.1:5000/items
+  ~~~
+
+</details>
+
 ---
 
 🧠 Tech Stack
 
-- 🐍 Python (Flask)
+- 🐍 Python (Flask) / MongoDB
 - 🐳 Docker & Docker Compose
 - ☸️ Kubernetes (up next)
 - 🌐 Nginx
