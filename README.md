@@ -3,19 +3,22 @@
 This repository tracks my hands-on journey to mastering **Docker** and **Kubernetes** through real-world mini-projects.  
 Each folder demonstrates a different concept — from containerizing Python apps to orchestrating multi-container environments.
 
-
 ## 🧩 **Projects Overview**
 
 ### 🧱 **1. Flask-API**
+
 A simple Python REST API built with **Flask**, containerized with Docker.  
+
 - Demonstrates building lightweight backend images  
 - Includes unit tests (`pytest`) and dependency management  
 
 **Run:**
+
 ~~~bash
 docker compose up --build
 ~~~
 
+---
 
 🌐 2. Nginx + Static Site
 
@@ -25,11 +28,13 @@ Shows how to serve HTML/CSS with Nginx
 Perfect for understanding web server containers
 
 Run:
+
 ~~~bash
 docker build -t static-site .
 docker run -d -p 8080:80 static-site
 ~~~
 
+---
 
 👥 3. Visitor Counter (Flask App)
 
@@ -45,8 +50,9 @@ Run:
 docker compose up --build
 ~~~
 
-Then open 👉 http://localhost:8080
+Then open 👉 [Visitor Counter] (http://localhost:8080)
 
+---
 
 📰 4. WordPress + MySQL Stack
 
@@ -62,8 +68,9 @@ Run:
 docker compose up -d
 ~~~
 
-Then visit 👉 http://localhost:8080
+Then visit 👉 [Wordpress](http://localhost:8080)
 
+---
 
 🧠 Tech Stack
   🐍 Python (Flask)
@@ -72,9 +79,7 @@ Then visit 👉 http://localhost:8080
   🌐 Nginx
   🗄️ MySQL / WordPress
 
-
-
+ ---
   ✨ Author
-
 Ashab Tariq
 “Learning by building — one container at a time.”
