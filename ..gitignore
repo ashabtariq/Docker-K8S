@@ -1,0 +1,46 @@
+
+---
+
+## ⚙️ **.gitignore**
+
+Use this at the root of your repo to exclude Python, cache, environment, and VS Code-specific files:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+*.coverage
+.env
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+*.out
+
+# Byte-compiled
+*.egg-info/
+build/
+dist/
+
+# VS Code
+.vscode/
+.history/
+.settings/
+
+# Docker
+*.pid
+*.tar
+*.log
+docker-compose.override.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kubernetes configs (optional)
+*.kubeconfig
