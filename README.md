@@ -44,44 +44,48 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 </details>
 
+<details>
+  <summary>
+    👥 3. Visitor Counter (Flask App)
 
-
-
----
-
-👥 3. Visitor Counter (Flask App)
-
-A small Flask application that counts and displays the number of visitors.
+A small Flask application that counts, stored in Redis and displays the number of visitors.
 
 Uses Flask templating with Jinja2
 Demonstrates Docker volumes & persistence
 Built for hands-on Compose practice
 
-Run:
+<b>Run</b>
 
 ~~~bash
 docker compose up --build
 ~~~
 
 Then open 👉 [Visitor Counter](http://localhost:8080)
+  </summary>
+</details>
+
 
 ---
 
-📰 4. WordPress + MySQL Stack
+<details>
+  <summary>
+  📰 4. WordPress + MySQL Stack
 
-Full multi-container setup for WordPress backed by MySQL.
+  Full multi-container setup for WordPress backed by MySQL.
 
-Uses Docker Compose
-Includes persistent named volumes
-Demonstrates healthchecks and inter-container networking
+  Uses Docker Compose
+  Includes persistent named volumes
+  Demonstrates healthchecks and inter-container networking
 
-Run:
+  Run:
 
-~~~bash
-docker compose up -d
-~~~
+  ~~~bash
+  docker compose up -d
+  ~~~
 
-Then visit 👉 [Wordpress](http://localhost:8080)
+  Then visit 👉 [Wordpress](http://localhost:8080)
+</summary>
+</details>
 
 ---
 
