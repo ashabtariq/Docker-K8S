@@ -23,7 +23,7 @@ Each folder demonstrates a different concept — from containerizing Python apps
 
 </details>
 
----
+
 <details>
 
   <summary><b>🌐 Nginx + Static Site </b> </summary>
@@ -64,7 +64,6 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
 </details>
 
 
----
 
 <details>
   <summary> 📰 4. WordPress + MySQL Stack </summary>
