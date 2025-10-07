@@ -1,0 +1,12 @@
+    # grafana/provisioning/dashboards/dashboards.yml
+    apiVersion: 1
+
+    providers:
+      - name: 'Default'
+        orgId: 1
+        folder: ''
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /MonitoringStack/Grafana-Dashboards/cadvisor.json

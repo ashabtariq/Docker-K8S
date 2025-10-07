@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus-Stack
+    type: prometheus
+    url: http://prometheus:9090 # Replace with your Prometheus service name or IP
+    access: proxy
+    isDefault: true
+    version: 1
+    editable: true

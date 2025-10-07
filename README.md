@@ -119,6 +119,27 @@ Then open 👉 [Visitor Counter](http://localhost:8080)
 
 </details>
 
+
+<details>
+  <summary> 🧠 Docker Monitoring Stack — Prometheus, Grafana, cAdvisor & Node Exporter </summary>
+  This project sets up a **complete monitoring stack** using **Docker Compose** to visualize real-time metrics of your containers and host system.  
+It includes:
+- 🧾 **Prometheus** — collects and stores metrics
+- 📦 **cAdvisor** — exposes container-level metrics
+- 🧍 **Node Exporter** — exposes host-level metrics
+- 📊 **Grafana** — visualizes metrics through beautiful dashboards
+
+## ⚙️ **Services Overview**
+
+| Service | Port | Description |
+|----------|------|-------------|
+| **Prometheus** | `9090` | Time-series database for metrics |
+| **Grafana** | `3000` | Dashboard UI for metrics visualization |
+| **cAdvisor** | `8080` | Monitors Docker container metrics |
+| **Node Exporter** | `9100` | Monitors system-level metrics |
+
+</details>
+
 ---
 
 🧠 Tech Stack
