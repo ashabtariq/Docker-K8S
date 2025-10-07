@@ -2,8 +2,8 @@ version: "3"
 
 services:
   product-api:
-    container_name: product-api
-    image: productapi
+    container_name: product-api-backend
+    image: ashabtariq12/product-api:latest
     restart: always
     environment:
       MONGO_URI: mongodb://mongo:27017/
@@ -13,7 +13,7 @@ services:
       - api-net
 
   mongodb:
-    container_name: mongo
+    container_name: product-api-db
     image: mongo
     restart: always
     volumes:
