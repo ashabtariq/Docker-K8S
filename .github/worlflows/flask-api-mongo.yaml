@@ -1,0 +1,36 @@
+name: Flask API + Mongo DB
+
+on:
+  workflow_dispatch:
+    commit:
+    branches:
+      - main
+    paths:
+      - 'Flask+Mongo/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-ubuntu
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        users: actions/setup-python@v4
+        with: 
+          python-varison: '3.10'
+
+      - name: Install Dependencies
+        run: | 
+          cd Flask+Mongo
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run Tests
+        run: |
+          cd Flask+Mongo
+          pytest
+
+
+  
