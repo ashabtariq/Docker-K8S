@@ -4,7 +4,7 @@ This repository tracks my hands-on journey to mastering **Docker** and **Kuberne
 
 Each folder demonstrates a different concept — from containerizing Python apps to orchestrating multi-container environments.
 
-# NOTE: SOME PROJECT MIGHT BE IN-PROGRESS AND MY NOT WORK AS INTENDED, ONLY THE PROJECTS LISTED BELOW WOULD BE CONSIDERED AS COMPLETE 
+### NOTE: SOME PROJECT MIGHT BE IN-PROGRESS AND MY NOT WORK AS INTENDED, ONLY THE PROJECTS LISTED BELOW WOULD BE CONSIDERED AS COMPLETE 
 
 ## 🧩 **Projects Overview**
 
