@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          valueFrom: 
+            configMapKeyRef:
+              name: mysql-configmap
+              key: db_host
+
+        - name: WORDPRESS_DB_USER
+          valueFrom: 
+            secretKeyRef:
+              name: wordpress-secret
+              key: db_user
+
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: wordpress-secret
+              key: db_password
+
+        - name: WORDPRESS_DB_NAME
+          valueFrom: 
+            secretKeyRef:
+              name: wordpress-secret
+              key: db_name
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  selector:
+    app: wordpress
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30000
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: wordpress-secret
+type: Opaque
+data:
+  db_user: d3A=             #wp
+  db_password: Y2hhbmdlbWU= #changeme
+  db_name: d29yZHByZXNz     #wordpress
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  db_host: mysql-service
+

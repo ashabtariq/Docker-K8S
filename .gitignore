@@ -2,7 +2,7 @@
 ---
 
 ## ⚙️ **.gitignore**
-
+PaymentGateway
 Use this at the root of your repo to exclude Python, cache, environment, and VS Code-specific files:
 
 ```gitignore
