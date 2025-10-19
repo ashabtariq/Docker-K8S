@@ -1,0 +1,9 @@
+    Flask
+    redis
+    python-dotenv
+    kubernetes
+    Flask-SocketIO 
+    python-socketio[asyncio] 
+    simple-websocket
+    gunicorn
+    eventlet

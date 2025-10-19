@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: frontend-load-test
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: loadgen
+          image: busybox
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "🚀 Starting load generation..."
+              end=$((SECONDS+180))  # run for 2 minutes
+              while [ $SECONDS -lt $end ]; do
+                wget -q -O- http://frontend:5000 > /dev/null
+              done
+              echo "✅ Load test complete!"

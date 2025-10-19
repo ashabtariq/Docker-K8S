@@ -1,0 +1,119 @@
+import time
+import logging
+from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
+from kubernetes import client, config
+from dotenv import load_dotenv
+import os
+import redis
+
+app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
+load_dotenv()
+
+# Connect to Redis
+redis_host = os.getenv("REDIS_HOST")
+redis_port = int(os.getenv("REDIS_PORT"))
+try:
+  redis_client = redis.StrictRedis(host=redis_host, port=redis_port, decode_responses=True)
+except Exception as ex:
+  logging.critical(ex)
+
+# In-memory store for pod data
+# In a production app, you might use a more robust cache or database
+pod_data_cache = {}
+
+try:
+    # Try in-cluster config first (works in pods)
+    config.load_incluster_config()
+    logging.info("Loaded in-cluster config.")
+except config.config_exception.ConfigException:
+    # Fallback for local testing (outside cluster)
+    logging.info("Falling back to local kubeconfig.")
+    config.load_kube_config()
+
+
+
+def fetch_pod_metrics():
+    """Fetches pod data and metrics and returns a list of dictionaries."""
+    try:
+        v1 = client.CoreV1Api()
+        api_client = client.CustomObjectsApi()
+        
+        pods = v1.list_namespaced_pod(namespace="default")
+        pod_metrics = api_client.list_namespaced_custom_object(
+            group="metrics.k8s.io",
+            version="v1beta1",
+            namespace="default",
+            plural="pods"
+        )
+        
+        pod_list = []
+        metrics_dict = {
+            item['metadata']['name']: item for item in pod_metrics.get('items', [])
+        }
+
+        for pod in pods.items:
+            pod_name = pod.metadata.name
+            metrics = metrics_dict.get(pod_name, {})
+            
+            cpu_usage = 'N/A'
+            memory_usage = 'N/A'
+
+            if metrics:
+                total_cpu = sum(int(c['usage']['cpu'].strip('n')) for c in metrics['containers'])
+                total_memory = sum(int(c['usage']['memory'].strip('Ki')) for c in metrics['containers'])
+                
+                cpu_usage = f"{total_cpu / 1_000_000_000:.2f} cores"
+                memory_usage = f"{total_memory / 1024:.2f} Mi"
+            else:
+                logging.warning(f"Metrics not found for pod: {pod_name}")
+
+            pod_list.append({
+                "name": pod_name,
+                "status": pod.status.phase,
+                "ip": pod.status.pod_ip,
+                "cpu": cpu_usage,
+                "memory": memory_usage
+            })
+        
+        return pod_list
+        
+    except client.ApiException as e:
+        logging.error(f"Kubernetes API Error: {e}")
+        return []
+    except Exception as e:
+        logging.critical(f"An unexpected error occurred: {e}")
+        return []
+
+def background_thread():
+    """Updates pod metrics periodically and broadcasts them via SocketIO."""
+    while True:
+        global pod_data_cache
+        pod_data_cache = fetch_pod_metrics()
+        socketio.emit('pod_metrics', {'pods': pod_data_cache, 'pod_count': len(pod_data_cache)})
+        time.sleep(5)  # Update every 5 seconds
+
+@app.route('/')
+def pods_page():
+    try:  
+      count = redis_client.incr('visitor_count')
+    #return f'You are Visitor number: {count}'
+    except Exception as ex:
+      logging.critical(ex)
+    """Renders the main page w ith the initial pod data."""
+    pod_data = fetch_pod_metrics()
+    pod_count = len(pod_data)
+    return render_template('pods.html', pods=pod_data, pod_count=pod_count, count=count)
+
+@socketio.on('connect')
+def handle_connect():
+    """Called when a new client connects."""
+    # Send cached data to the new client immediately
+    emit('pod_metrics', {'pods': pod_data_cache, 'pod_count': len(pod_data_cache)})
+
+if __name__ == '__main__':
+    # Start the background thread for updating metrics
+    socketio.start_background_task(background_thread)
+    socketio.run(app, debug=True, host='0.0.0.0', port=5000,allow_unsafe_werkzeug=True)
+
