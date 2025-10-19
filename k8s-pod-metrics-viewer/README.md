@@ -93,13 +93,8 @@ Then open [http://localhost:5000](http://localhost:5000)
 
 ## ☸️ Running on Kubernetes
 
-### 2️⃣ Create Kubeconfig Secret
-
-```bash
-kubectl create secret generic kubeconfig-secret   --from-file=$HOME/.kube/config
 ```
-
-### 1️⃣ Apply Redis backend
+### 1️⃣ Apply Stack File
 
 ```bash
 
@@ -120,7 +115,7 @@ minikube service frontend
 Or if you have Ingress enabled, open:
 
 ```
-http://k8s.buildbee.dev
+https://YOUD DOMAIN <-- ADD YOUR DOMAIN HERE
 ```
 
 ---
@@ -131,7 +126,6 @@ http://k8s.buildbee.dev
 |-----------|----------|-------------|
 | `REDIS_HOST` | `redis-instance` | Hostname for Redis service |
 | `REDIS_PORT` | `6379` | Redis port |
-| `RUN_METRICS_THREAD` | `true` | Controls background metrics polling thread |
 
 ---
 
